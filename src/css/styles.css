@@ -1,0 +1,67 @@
+
+.header {
+    height: 100vh;
+    background-image: url(/src/img/bgimage.webp);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+}
+
+
+.carousel-item {
+    text-align: center; 
+}
+
+.carousel-item h1 {
+    color: white; 
+    font-family: "Bebas Neue", sans-serif; 
+    font-size: 80px;
+}
+
+.carousel-item p {
+    color: white; 
+    font-family: "Montserrat", sans-serif; 
+}
+
+.btn-custom {
+    background-color: #007bff; 
+	border-radius: 15px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel-item h1 {
+        font-size: 48px; 
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-item h1 {
+        font-size: 32px; 
+    }
+    .carousel-item p {
+        font-size: 14px; 
+    }
+}
+
+footer {
+    background-color: #343a40;
+    color: white; 
+    text-align: center;
+    padding: 20px 0;
+    font-family: "Montserrat", sans-serif;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
+footer a {
+    color: #007bff; 
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline; 
+}

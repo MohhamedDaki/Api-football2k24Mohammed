@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <select id="ligas">
+        <option value="">Seleccione una liga</option>
+    </select>
+
+
+    <div id="wg-api-football-standings" data-host="v3.football.api-sports.io"
+        data-key="a109bc27dca18f3c6a48a9668e918446" data-league="39" data-team="" data-season="2022" data-theme=""
+        data-show-errors="false" data-show-logos="true" class="wg_loader">
+    </div>
+    <script type="module" src="https://widgets.api-sports.io/2.0.3/widgets.js">
+    </script>
+
+
+
+
+    <script src="fetchleagues.js"></script>
+
+
+    <script>
+        document.addEventListener('click', function (event) {
+
+            if (event.target.matches('#ligas')) {
+
+
+                let ligaseleccionada = event.target.value;
+
+
+
+                let standings = document.getElementById('wg-api-football-standings')
+
+                standings.setAttribute('data-league', ligaseleccionada);
+
+                window.document.dispatchEvent(new Event("DOMContentLoaded", {
+                    bubbles: true,
+                    cancelable: true
+                }));
+            }
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

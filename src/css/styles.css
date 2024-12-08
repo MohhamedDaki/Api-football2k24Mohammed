@@ -10,6 +10,12 @@
     color: white; 
 }
 
+h1{
+    color: white; 
+    font-family: "Bebas Neue", sans-serif; 
+    font-size: 80px;
+}
+
 
 .carousel-item {
     text-align: center; 

@@ -2,7 +2,7 @@ fetch("https://v3.football.api-sports.io/leagues", {
     "method": "GET",
     "headers": {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "a109bc27dca18f3c6a48a9668e918446"
+        "x-rapidapi-key": "6183d09d0ae4c02dd619a6029e5e4e6b"
     }
 })
 .then(response => response.json()) 

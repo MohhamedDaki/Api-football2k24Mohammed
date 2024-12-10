@@ -76,10 +76,26 @@
        
         <div class="container">
           <h1 class="text-center mb-4">Encuentra a tus equipos y jugadores favoritos</h1>
-          <select id="ligas" class="form-select">
-            <option value="0">Seleccione una liga</option>
+          <form id="searchForm" class="mb-4">
+          <div class="select-container">
+            
+            <select id="ligas">
+                <option value="">Seleccione una liga</option>
+            </select>
+
+            <select id="seasons">
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
           </select>
+           </div>
+
           
+            <div class="input-group mb-3">
+              <input type="text" id="playerSearch" class="form-control" placeholder="Introduce el nombre del equipo" required>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
           
          
            
@@ -97,13 +113,13 @@
     <img class="card-img-top" src="..." alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text"></p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Cras justo odio</li>
       <li class="list-group-item">Dapibus ac facilisis in</li>
       <li class="list-group-item">Vestibulum at eros</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item"></li>
       <li class="list-group-item"><a href="#" class="show-players">Mostrar jugadores</a></li>
     </ul>
   </div>

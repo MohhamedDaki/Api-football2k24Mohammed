@@ -5,51 +5,88 @@ fetch("https://v3.football.api-sports.io/leagues", {
         "x-rapidapi-key": "6183d09d0ae4c02dd619a6029e5e4e6b"
     }
 })
-.then(response => response.json())
-.then(data => procesarLigas(data))
+.then(response => response.json()) 
+.then(data => procesarJson(data)) 
 .catch(err => {
     console.log(err);
 });
 
-function procesarLigas(data) {
-    const select = document.getElementById('ligas');
+
+function procesarJson(data) {
+    const select = document.getElementById('ligas'); 
+    
+    
     select.innerHTML = '';
+
+    
     data.response.forEach(liga => {
         const option = document.createElement('option');
-        option.value = liga.league.id;
-        option.textContent = liga.league.name;
-        select.appendChild(option);
+        option.value = liga.league.id; 
+        option.textContent = liga.league.name;  
+        
+        select.appendChild(option); 
     });
 }
 
-const select = document.getElementById('ligas');
 
-select.addEventListener('change', function () {
-    const selectedValue = select.value;
-    fetch(`https://v3.football.api-sports.io/teams?league=${selectedValue}&season=2021`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "v3.football.api-sports.io",
-            "x-rapidapi-key": "6183d09d0ae4c02dd619a6029e5e4e6b"
-        }
+
+
+
+
+
+
+
+
+document.getElementById('searchForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+  
+    const equipo = document.getElementById('playerSearch').value.trim();
+    const selectedValue = document.getElementById('ligas').value; 
+    const season= document.getElementById('seasons').value;
+    console.log(equipo);
+    console.log(selectedValue);
+    console.log(season);
+    
+    
+      fetchTeams(equipo,selectedValue,season); 
+    
+  });
+  
+  function fetchTeams(equipo,selectedValue,season) {
+    fetch(`https://v3.football.api-sports.io/teams?league=${selectedValue}&season=${season}`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "v3.football.api-sports.io",
+        "x-rapidapi-key": "6183d09d0ae4c02dd619a6029e5e4e6b"
+      }
     })
     .then(response => response.json())
-    .then(data => procesarEquipos(data))
-    .catch(err => {
-        console.log(err);
-    });
-});
+    .then(data => {
+        console.log(data);
+        const filteredTeams = data.response.filter(team =>
+            team.team.name.toLowerCase().includes(equipo.toLowerCase())
+        );
 
-function procesarEquipos(data) {
+        console.log("LOS EQUIPOS SON"+filteredTeams);
+        procesarteams( filteredTeams );
+    } )
+    .catch(err => {
+      console.log(err);
+    });
+  }
+  
+  function procesarteams(filteredTeams) {
+
+    
     const container = document.getElementById('cardsContainer');
     container.innerHTML = '';
-    if (data.response.length === 0) {
+    if (filteredTeams.length === 0) {
         const noTeamsMessage = document.createElement('p');
-        noTeamsMessage.textContent = 'No se encontraron equipos para esta liga.';
+        noTeamsMessage.textContent = 'No se encontraron equipos.';
         container.appendChild(noTeamsMessage);
         return;
     }
-    data.response.forEach(team => {
+    filteredTeams.forEach(team => {
         const plantilla = document.getElementById('card');
         let card = plantilla.cloneNode(true);
         card.style.display = 'block';
@@ -64,11 +101,17 @@ function procesarEquipos(data) {
         lista[0].textContent = `Código: ${team.team.code}`;
         lista[1].textContent = `País: ${team.team.country}`;
         lista[2].textContent = `Año de fundación: ${team.team.founded}`;
-        lista[3].textContent = 'Ver jugadores';
         col.appendChild(card);
         container.appendChild(col);
     });
-}
+
+
+
+  
+   
+  }
+  
+
 
 document.getElementById('cardsContainer').addEventListener('click', function(event) {
     const card = event.target.closest('.card');

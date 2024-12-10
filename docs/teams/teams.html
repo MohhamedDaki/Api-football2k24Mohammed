@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards de Equipos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .card {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .cards-container {
+      margin-top: 30px;
+    }
+    .card-body {
+      text-align: center;
+    }
+    .card-img-top {
+      width: 100%;
+      height: auto;
+    }
+    .list-group-item {
+      text-align: center;
+    }
+    #jugadoresList img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+  <div class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center px-4 fixed-top">
+        <div class="container">
+            <a href="../index.html">
+            <img class="navbar-brand" src="../img/logo.jpg" href="#" style="width: 40px; ">
+        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../leagues/leagues.html">Ligas</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../teams/teams.html">Equipos</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="../players/players.html">Jugadores</a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="../matches/matches.html">Partidos</a>
+                  </li> 
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="https://github.com/MohhamedDaki">Contacto</a>
+                    </li>          
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+       
+        <div class="container">
+          <h1 class="text-center mb-4">Encuentra a tus equipos y jugadores favoritos</h1>
+          <form id="searchForm" class="mb-4">
+          <div class="select-container">
+            
+            <select id="ligas">
+                <option value="">Seleccione una liga</option>
+            </select>
+
+            <select id="seasons">
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+          </select>
+           </div>
+
+          
+            <div class="input-group mb-3">
+              <input type="text" id="playerSearch" class="form-control" placeholder="Introduce el nombre del equipo" required>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+          
+         
+           
+          </div>
+               
+                
+    
+</div>
+
+
+<main class="container">
+  <div class="row" id="cardsContainer"></div>
+
+  <div class="card" id="card" style="display: none;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+      <li class="list-group-item"></li>
+      <li class="list-group-item"><a href="#" class="show-players">Mostrar jugadores</a></li>
+    </ul>
+  </div>
+</main>
+
+<div id="jugadoresContainer" class="container" style="display:none;">
+  <h3>Jugadores del equipo</h3>
+  <ul id="jugadoresList" class="list-group">
+    
+  </ul>
+</div>
+
+
+
+
+
+<footer class="text-center bg-dark">
+  <div class="container">
+    <p class="text-white">&copy; 2024 Fuera de Juego. Todos los derechos reservados</p>
+    <p class="text-white">Powered by <a href="https://www.api-football.com/" class="text-white">API-Football</a></p>
+    <p class="text-white"><a href="#" class="text-white">Politica de Privacidad</a> | <a href="#" class="text-white">Términos de Servicio</a></p>
+  </div>
+</footer>
+
+<script src="fetchteams.js"></script>
+</body>
+</html>

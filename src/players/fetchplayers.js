@@ -5,9 +5,9 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
     console.log(playerSearch);
     
     if (playerSearch.length >= 3) {
-      fetchPlayers(playerSearch); // Realizar la búsqueda con el parámetro search
+      fetchPlayers(playerSearch); 
     } else {
-      alert('Please enter at least 3 characters for the player name.');
+      alert('Introduce minimo 3 caracteres.');
     }
   });
   
@@ -35,10 +35,10 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
       return;
     }
   
-    // Añadir las tarjetas de los jugadores
+    
     data.response.forEach(jugador => {
       const card = document.createElement('div');
-      card.className = "col-md-4 col-sm-6 col-12 mb-4";  // Hacemos que las tarjetas sean responsivas
+      card.className = "col-md-4 col-sm-6 col-12 mb-4";  
   
       card.innerHTML = `
         <div class="card player-card">
